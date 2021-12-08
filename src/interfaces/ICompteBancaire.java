@@ -1,4 +1,4 @@
-package models.dal;
+package interfaces;
 
 public interface ICompteBancaire {
 }

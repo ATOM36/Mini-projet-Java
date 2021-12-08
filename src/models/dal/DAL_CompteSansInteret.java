@@ -1,4 +1,6 @@
 package models.dal;
 
-public class DAL_CompteSansInteret implements ICompteBancaire{
+import interfaces.ICompteBancaire;
+
+public class DAL_CompteSansInteret implements ICompteBancaire {
 }

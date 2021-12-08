@@ -1,4 +1,6 @@
 package models.dal;
 
-public class DAL_Client implements IUser{
+import interfaces.IUser;
+
+public class DAL_Client implements IUser {
 }

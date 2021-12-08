@@ -1,4 +1,6 @@
 package models.dal;
 
-public class DAL_Banquier implements IUser{
+import interfaces.IUser;
+
+public class DAL_Banquier implements IUser {
 }
