@@ -10,4 +10,9 @@ public class Client extends Personne {
         super(nom, prenom, cin, adresse, email, numeroTelephone, salaire);
         this.banquierID = banquierID;
     }
+
+    @Override
+    public String toString(){
+        return null;
+    }
 }

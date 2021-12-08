@@ -14,4 +14,9 @@ public class OperationBancaire {
         this.historiqueID = historiqueID;
     }
 
+    @Override
+    public String toString(){
+        return null;
+    }
+
 }

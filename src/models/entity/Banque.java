@@ -7,4 +7,9 @@ public class Banque {
         this.nom = nom;
         this.adresse = adresse;
     }
+
+    @Override
+    public String toString(){
+        return null;
+    }
 }

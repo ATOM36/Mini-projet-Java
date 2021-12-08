@@ -11,4 +11,9 @@ public class Historique {
         this.clientID = clientID;
         this.compteID = compteID;
     }
+
+    @Override
+    public String toString(){
+        return null;
+    }
 }
