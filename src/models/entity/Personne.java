@@ -1,7 +1,7 @@
 package models.entity;
 
 public abstract class Personne {
-    protected static long id;
+    protected static long id = 1;
     public long myID;
     public String nom, prenom, cin, adresse, email, numeroTelephone;
     public float salaire;
@@ -16,4 +16,11 @@ public abstract class Personne {
         this.numeroTelephone = numeroTelephone;
         this.salaire = salaire;
     }
+
+    @Override
+    public String toString() {
+        return "ID = " + myID + ", Nom = " + nom + ", Prenom = " + prenom + ", CIN = " + cin + ", Adresse = " + adresse +
+                ", Email = " + email + "Numero Telephone = " + numeroTelephone + ", Salaire = " + salaire;
+    }
+
 }

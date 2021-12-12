@@ -1,4 +1,6 @@
 package models.bll;
 
-public class BLL_Historique {
+import interfaces.IHistorique;
+
+public abstract class BLL_Historique extends IHistorique {
 }

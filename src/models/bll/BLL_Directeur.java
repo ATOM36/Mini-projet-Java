@@ -1,4 +1,6 @@
 package models.bll;
 
-public class BLL_Directeur {
+import interfaces.IDirecteur;
+
+public abstract class BLL_Directeur extends IDirecteur {
 }

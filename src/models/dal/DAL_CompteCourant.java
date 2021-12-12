@@ -1,17 +1,45 @@
 package models.dal;
 
 import models.entity.CompteCourant;
+import models.entity.DataBase;
 
 import java.util.ArrayList;
 
-public class DAL_CompteCourant {
+import interfaces.ICompteCourant;
 
-    public static CompteCourant getCompte(long compteID, long clientID , String password){
-        return null;
+public abstract class DAL_CompteCourant extends ICompteCourant {
+
+    public static CompteCourant getCompte(long compteID) {
+        CompteCourant result = null;
+        int i = 0;
+
+        while ((i < DataBase.compteCourant.size()) && (result == null)) {
+            if (DataBase.compteCourant.get(i).compteID == compteID)
+                result = DataBase.compteCourant.get(i);
+            else
+                i++;
+        }
+
+        return result;
     }
 
-    public static ArrayList<CompteCourant> getAllCompte(){
-        return null;
+    public static CompteCourant getCompte(long compteID, long clientID) {
+        CompteCourant result = null;
+        int i = 0;
+
+        while ((i < DataBase.compteCourant.size()) && (result == null)) {
+            if (DataBase.compteCourant.get(i).compteID == compteID && DataBase.compteCourant.get(i).clientID == clientID)
+                result = DataBase.compteCourant.get(i);
+            else
+                i++;
+        }
+
+        return result;
+
+    }
+
+    public static ArrayList<CompteCourant> getAllCompte() {
+        return DataBase.compteCourant;
     }
 
     /***
@@ -19,19 +47,58 @@ public class DAL_CompteCourant {
      * @param clientID
      * @return
      */
-    public static ArrayList<CompteCourant> getAllCompte(long clientID){
-        return null;
+    public static ArrayList<CompteCourant> getAllCompte(long clientID) {
+        ArrayList<CompteCourant> result = new ArrayList<CompteCourant>();
+        int i = 0;
+
+        while ((i < DataBase.compteCourant.size())) {
+            if (DataBase.compteCourant.get(i).clientID == clientID)
+                result.add(DataBase.compteCourant.get(i));
+            else
+                i++;
+        }
+
+        return result;
     }
 
-    public static void ajouterCompte(CompteCourant compte){
-
+    public static boolean ajouterCompte(CompteCourant compte) {
+        boolean result = false;
+        try {
+            DataBase.compteCourant.add(compte);
+            result = true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
     }
 
-    public static boolean supprimerCompte(long compteID){
-        return false;
+    public static boolean supprimerCompte(long compteID) {
+        boolean result = false;
+        int i = 0;
+
+        while ((i < DataBase.compteCourant.size()) && (result == false)) {
+            if (DataBase.compteCourant.get(i).compteID == compteID)
+                try {
+                    DataBase.compteCourant.remove(DataBase.compteCourant.get(i));
+                    result = true;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
+            else
+                i++;
+        }
+
+        return result;
     }
 
-    public static boolean updateCompte(long compteID,CompteCourant compte){
-        return false;
+    public static boolean updateCompte(long compteID, CompteCourant compte) {
+        try {
+            DataBase.compteCourant.set(DataBase.compteCourant.indexOf(getCompte(compteID)), compte);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }

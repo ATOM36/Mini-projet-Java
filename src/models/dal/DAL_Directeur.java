@@ -6,15 +6,14 @@ import models.entity.Directeur;
 
 import java.util.ArrayList;
 
-public class DAL_Directeur implements IDirecteur {
+public abstract class DAL_Directeur extends IDirecteur {
 
     /***
      * Retourne le directeur actuel
      * @return
      */
-    @Override
-    public Directeur getDirecteur(){
-        return DataBase.directeur.get(DataBase.directeur.size()-1);
+    public static Directeur getDirecteur() {
+        return DataBase.directeur.get(DataBase.directeur.size() - 1);
     }
 
     /***
@@ -22,46 +21,62 @@ public class DAL_Directeur implements IDirecteur {
      * @param directeurID
      * @return
      */
-    @Override
-    public Directeur getDirecteur(long directeurID){
-        Directeur result=null;
-        int i=0;
+    public static Directeur getDirecteur(long directeurID) {
+        Directeur result = null;
+        int i = 0;
 
-        while((i<DataBase.directeur.size())&&(result==null)){
-            if(DataBase.directeur.get(i).myID==directeurID)
-                result=DataBase.directeur.get(i);
+        while ((i < DataBase.directeur.size()) && (result == null)) {
+            if (DataBase.directeur.get(i).myID == directeurID)
+                result = DataBase.directeur.get(i);
             else
                 i++;
         }
 
-        return  result;
+        return result;
     }
 
-    @Override
-    public ArrayList<Directeur> getAllDirecteur(){
+    public static ArrayList<Directeur> getAllDirecteur() {
         return DataBase.directeur;
     }
 
-    @Override
-    public boolean ajouterDirecteur(Directeur lambda){
-        try{
+    public static boolean ajouterDirecteur(Directeur lambda) {
+        try {
             DataBase.directeur.add(lambda);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
     }
 
-    @Override
-    public boolean supprimerDirecteur(long directeurID){
-        return false;
+    public static boolean supprimerDirecteur(long directeurID) {
+        try {
+            DataBase.directeur.remove(DataBase.directeur.indexOf(getDirecteur(directeurID)));
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
-    @Override
-    public boolean updateDirecteur(long directeurID, Directeur lambda){
-        return false;
+    public static boolean supprimerDirecteur(Directeur lambda) {
+        try {
+            DataBase.directeur.remove(DataBase.directeur.indexOf(lambda));
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean updateDirecteur(long directeurID, Directeur lambda) {
+        try {
+            DataBase.directeur.set(DataBase.directeur.indexOf(getDirecteur(directeurID)), lambda);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
 }

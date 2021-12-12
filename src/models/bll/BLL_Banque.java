@@ -1,4 +1,4 @@
 package models.bll;
 
-public class BLL_Banque {
+public abstract class BLL_Banque {
 }

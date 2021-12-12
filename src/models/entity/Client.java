@@ -12,7 +12,7 @@ public class Client extends Personne {
     }
 
     @Override
-    public String toString(){
-        return null;
+    public String toString() {
+        return "Client [ " + super.toString() + ", banquierID = " + banquierID + " ]";
     }
 }
