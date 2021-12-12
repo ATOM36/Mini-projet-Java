@@ -9,7 +9,7 @@ public class Banque {
     }
 
     @Override
-    public String toString(){
-        return null;
+    public String toString() {
+        return "Banque [ Nom = " + nom + ", Adresse = " + adresse + " ]";
     }
 }

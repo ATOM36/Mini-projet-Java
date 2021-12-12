@@ -7,10 +7,9 @@ import models.entity.DataBase;
 
 import java.util.ArrayList;
 
-public class DAL_Client implements IClient {
+public abstract class DAL_Client extends IClient {
 
-    @Override
-    public Client getClient(long clientID) {
+    public static Client getClient(long clientID) {
         Client result = null;
         int i = 0;
 
@@ -24,18 +23,11 @@ public class DAL_Client implements IClient {
         return result;
     }
 
-    @Override
-    public ArrayList<Client> getAllClient() {
+    public static ArrayList<Client> getAllClient() {
         return DataBase.client;
     }
 
-    /***
-     * Retourne tous les clients suivis par un banquier donné
-     * @param banquierID
-     * @return
-     */
-    @Override
-    public ArrayList<Client> getAllClient(long banquierID) {
+    public static ArrayList<Client> getAllClient(long banquierID) {
         ArrayList<Client> result = new ArrayList<Client>();
         int i = 0;
 
@@ -48,8 +40,7 @@ public class DAL_Client implements IClient {
         return result;
     }
 
-    @Override
-    public boolean ajouterClient(Client lambda) {
+    public static boolean ajouterClient(Client lambda) {
         try {
             DataBase.client.add(lambda);
             return true;
@@ -59,13 +50,8 @@ public class DAL_Client implements IClient {
         }
     }
 
-    /***
-     * Supprime le client passé en paramètre
-     * @param lambda
-     * @return
-     */
-    @Override
-    public boolean supprimerClient(Client lambda) {
+
+    public static boolean supprimerClient(Client lambda) {
         try {
             DataBase.client.remove(lambda);
             return true;
@@ -75,13 +61,8 @@ public class DAL_Client implements IClient {
         }
     }
 
-    /***
-     * Supprime le client dont la référence a été passée en paramètre
-     * @param clientID
-     * @return
-     */
-    @Override
-    public boolean supprimerClient(long clientID) {
+
+    public static boolean supprimerClient(long clientID) {
         try {
             DataBase.client.remove(DataBase.client.indexOf(getClient(clientID)));
             return true;
@@ -91,8 +72,7 @@ public class DAL_Client implements IClient {
         }
     }
 
-    @Override
-    public boolean updateClient(long clientID, Client lambda) {
+    public static boolean updateClient(long clientID, Client lambda) {
         try {
             DataBase.client.set(DataBase.client.indexOf(getClient(clientID)), lambda);
             return true;

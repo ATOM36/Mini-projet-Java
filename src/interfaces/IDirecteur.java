@@ -4,16 +4,32 @@ import models.entity.Directeur;
 
 import java.util.ArrayList;
 
-public interface IDirecteur {
-    Directeur getDirecteur();
+public abstract class IDirecteur {
+    public static Directeur getDirecteur() {
+        return null;
+    }
 
-    Directeur getDirecteur(long directeurID);
+    public static Directeur getDirecteur(long directeurID) {
+        return null;
+    }
 
-    ArrayList<Directeur> getAllDirecteur();
+    public static ArrayList<Directeur> getAllDirecteur() {
+        return null;
+    }
 
-    boolean ajouterDirecteur(Directeur lambda);
+    public static boolean ajouterDirecteur(Directeur lambda) {
+        return false;
+    }
 
-    boolean supprimerDirecteur(long directeurID);
+    public static boolean supprimerDirecteur(long directeurID) {
+        return false;
+    }
 
-    boolean updateDirecteur(long directeurID, Directeur lambda);
+    public static boolean supprimerDirecteur(Directeur lambda){
+        return false;
+    }
+
+    public static boolean updateDirecteur(long directeurID, Directeur lambda) {
+        return false;
+    }
 }

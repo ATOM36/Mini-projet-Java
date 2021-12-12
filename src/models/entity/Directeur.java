@@ -2,15 +2,16 @@ package models.entity;
 
 public class Directeur extends Employe {
 
+    public boolean estDirecteur;
 
     public Directeur(String nom, String prenom, String cin, String adresse, String email, String numeroTelephone,
-                     float salaire) {
+                     float salaire, String password, String username) {
 
-        super(nom, prenom, cin, adresse, email, numeroTelephone, salaire);
+        super(nom, prenom, cin, adresse, email, numeroTelephone, salaire, password, username);
+        this.estDirecteur = true;
     }
 
-    @Override
-    public String toString(){
-        return null;
+    public String toString() {
+        return "Directeur[" + super.toString() + "]";
     }
 }

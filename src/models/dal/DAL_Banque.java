@@ -1,4 +1,4 @@
 package models.dal;
 
-public class DAL_Banque {
+public abstract class DAL_Banque {
 }

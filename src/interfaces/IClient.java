@@ -4,19 +4,33 @@ import models.entity.Client;
 
 import java.util.ArrayList;
 
-public interface IClient {
-    Client getClient(long clientID);
+public abstract class IClient {
+    public static Client getClient(long clientID){
+    	return null;
+    }
 
-    ArrayList<Client> getAllClient();
+    public static ArrayList<Client> getAllClient(){
+    	return null;
+    }
 
-    ArrayList<Client> getAllClient(long banquierID);
+    public static ArrayList<Client> getAllClient(long banquierID){
+    	return null;
+    }
 
-    boolean ajouterClient(Client lamba);
+    public static boolean ajouterClient(Client lamba){
+    	return false;
+    }
 
-    boolean supprimerClient(Client lambda);
+    public static boolean supprimerClient(Client lambda){
+    	return false;
+    }
 
-    boolean supprimerClient(long clientID);
+    public static boolean supprimerClient(long clientID){
+    	return false;
+    }
 
-    boolean updateClient(long clientID, Client lambda);
+    public static boolean updateClient(long clientID, Client lambda){
+    	return false;
+    }
 
 }
